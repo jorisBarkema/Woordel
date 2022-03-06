@@ -50,8 +50,10 @@ const Game : FunctionComponent = () => {
 
   // Get a random seed based on the date
   let seed = mulberry32(d * m * y);
-  const answer = options[Math.floor(seed * options.length)];
-
+  const answer = (d === 6 && m === 3 && y === 2022)
+    ? "PUPPY"
+    : options[Math.floor(seed * options.length)];
+  
   const [currentGuess, setCurrentGuess] = useState(0);
   const [guesses, setGuesses] = useState(["", "", "", "", "", ""]);
   // @ts-ignore Ignore Keyboard used as type error
